@@ -1,4 +1,9 @@
 import styled from "styled-components";
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
 const Section = styled('section')`
     display: flex;
     flex-direction: column;
@@ -13,7 +18,7 @@ const List = styled('ul')`
     list-style: none;
 `
 const Item = styled('li')`
-    background-color: aqua;
+background-color: ${getRandomHexColor()};
     padding: 50px;
     display: flex;
     flex-direction: column;

@@ -1,19 +1,42 @@
 import styled from "styled-components";
 const List = styled('ul')`
-        list-style: none;
-`
-let Span = styled('span')`
+    display: flex;
+    gap: 50px;
+    margin: 70px 0px 70px 0px;
+    justify-content: center;
+    list-style: none;
+    .green{
+        background-color: green;
+        width: 10px;
+    height: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    }
+    .red{
         background-color: red;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        padding: 15px;
+        width: 10px;
+    height: 10px;
+    padding: 5px;
+    border-radius: 50%;
+        
+    }
+    .item{
+        background-color: grey;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 30px;
+        flex-direction: column;
+    }
+    .name{
+        color: #fff;
+    }
 `
 const FriendList = (props) => {
     return (<List className="friend-list">
         {props.friends.map(el => {
             return (<li className="item" key={el.id}>
-                <Span className="status"></Span>
+                <span className={el.isOnline ? 'green' : 'red'}></span>
   <img className="avatar" src={el.avatar} alt="User avatar" width="48" />
                 <p className="name">{el.name}</p>
 </li>)
